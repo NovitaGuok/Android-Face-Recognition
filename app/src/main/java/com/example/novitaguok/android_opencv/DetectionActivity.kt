@@ -63,19 +63,19 @@ class DetectionActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraView
 
                         val buffer = ByteArray(4096)
                         var bytesRead : Int?
-
-                        do {
-                            bytesRead = inputStream.read(buffer)
-                            if (bytesRead == -1) break
-                            os.write(buffer, 0, bytesRead)
-                        } while (true)
-
-                        inputStream.close()
                         os.close()
 
                         cascadeClassifier = CascadeClassifier(mCascadeFile.absolutePath)
                         if (cascadeClassifier.empty()) {
-                            Log.d(TAG, "Failed to load cascade classifier")
+                            Log.d(TAG, "Fa\n" +
+                                    "\n" +
+                                    "                        do {\n" +
+                                    "                            bytesRead = inputStream.read(buffer)\n" +
+                                    "                            if (bytesRead == -1) break\n" +
+                                    "                            os.write(buffer, 0, bytesRead)\n" +
+                                    "                        } while (true)\n" +
+                                    "\n" +
+                                    "                        inputStream.close()iled to load cascade classifier")
                         } else
                             Log.d(TAG,"Loaded cascade classifier from " + mCascadeFile.absolutePath)
 

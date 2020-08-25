@@ -39,6 +39,10 @@ android {
             jniLibs.srcDirs = ['src/main/jniLibs']
         }
     }
+    aaptOptions {
+        noCompress "tflite"
+        noCompress "lite"
+    }
 }
 
 dependencies {
@@ -51,4 +55,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'org.tensorflow:tensorflow-lite:+'
+    // Import tflite dependencies
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
+    // The GPU delegate library is optional. Depend on it as needed.
+    implementation 'org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.0.0-nightly'
+    // This dependency adds the necessary TF op support.
+    implementation 'org.tensorflow:tensorflow-lite-select-tf-ops:0.0.0-nightly'
 }

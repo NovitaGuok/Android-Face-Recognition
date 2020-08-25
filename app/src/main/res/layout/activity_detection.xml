@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:opencv="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -9,15 +10,26 @@
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    tools:context="com.example.novitaguok.android_opencv.DetectionActivity">
+    android:paddingTop="16dp">
 
     <com.example.novitaguok.android_opencv.custom.JavaCameraView
         android:id="@+id/opencv_camera"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:visibility="gone"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_register"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         opencv:camera_id="any"
         opencv:show_fps="true"/>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register New Face"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/buttonPrimary"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
